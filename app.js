@@ -3,6 +3,12 @@ var express = require('express');
 var bodyParser = require('body-parser');
 var indexController = require('./controllers/index.js');
 
+// Also need to add a NODE_ENV config var in heroku app settings
+console.log = process.env.NODE_ENV ? function(){} : console.log;
+	
+
+
+
 var app = express();
 app.set('view engine', 'jade');
 app.set('views', __dirname + '/views');
